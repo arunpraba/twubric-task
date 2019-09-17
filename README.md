@@ -1,6 +1,35 @@
 # TwubricTask
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
+Deployed in https://arunprabak-twubric-task.netlify.com/
+
+I have utilized few things to complete the task
+
+## Bootstrap Css framework
+
+## Modules 
+      To utilize the routing Feature
+      To import the material date picker
+      
+## Decorator
+      `@Input()` and `@Output()` decorators used for component interaction
+
+## Structural directive
+      `*ngIf` and `*ngFor` directives used for hiding and looping
+      
+## Services and Dependency Injection
+       To fetch the data using HttpClientModule
+       
+## Lifecycle Hooks
+       `ngOnInit()` used To initiate api Fetching
+    
+## Pipes
+       pipes used for format the date
+       
+## Events and Attribute Binding
+       Event binding and Attribute binding used to trigger the events and bind attributes to element
+       
+## ES6
+      `sort` and `filter`, `Object.keys()`
 
 ## Development server
 
