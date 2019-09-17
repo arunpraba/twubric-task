@@ -15,22 +15,24 @@ export class UsersComponent implements OnInit {
     fromDate: new Date(),
     toDate: new Date()
   };
+  
+
   sortMenuList = [
     {
-      id: 1,
-      menu: 'Twubric Score'
+      menu: 'Twubric Score',
+      name: 'total'
     },
     {
-      id: 2,
-      menu: 'Friends'
+      menu: 'Friends',
+      name: 'friends'
     },
     {
-      id: 3,
-      menu: 'Influence'
+      menu: 'Influence',
+      name: 'influence'
     },
     {
-      id: 4,
-      menu: 'Chirpiness'
+      menu: 'Chirpiness',
+      name: 'chirpiness'
     }
   ];
 
@@ -56,30 +58,24 @@ export class UsersComponent implements OnInit {
     this.isFilterActive = !this.isFilterActive;
   }
 
-  sortBy(id) {
+  sortBy(type, name) {
     this.isSortActive = false;
     this.isFilterActive = false;
-    if (id === 1) {
+    if(type === 'ab') {
       this.apiData = this.apiData.sort(
-        (a, b) => b.twubric.total - a.twubric.total
+        (a, b) => a.twubric[name] - b.twubric[name]
       );
-    } else if (id === 2) {
+    } else if(type === 'ba') {
       this.apiData = this.apiData.sort(
-        (a, b) => b.twubric.friends - a.twubric.friends
-      );
-    } else if (id === 3) {
-      this.apiData = this.apiData.sort(
-        (a, b) => b.twubric.influence - a.twubric.influence
-      );
-    } else if (id === 4) {
-      this.apiData = this.apiData.sort(
-        (a, b) => b.twubric.chirpiness - a.twubric.chirpiness
-      );
+        (a, b) => b.twubric[name] - a.twubric[name]
+      ); 
     }
   }
 
   removeItem(user) {
     this.apiData = this.apiData.filter(el => el.uid !== user.uid);
+    const index =  this.usersList.findIndex(el=> el.uid===user.uid)
+    this.usersList.splice(index, 1)
   }
 
   filterByDate() {
