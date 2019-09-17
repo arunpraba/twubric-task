@@ -7,8 +7,10 @@
         </button>
         <div *ngIf="isSortActive" class="sort-menu__list box-3">
           <ul class="list-group">
-            <li class="list-group-item" *ngFor="let m of sortMenuList" (click)="sortBy(m.id)">
-              {{m.menu}}
+            <li class="list-group-item" *ngFor="let m of sortMenuList">
+              <span class="btn btn-sm btn-primary" (click)="sortBy('ab', m.name)">a-b</span> 
+              {{m.menu}} 
+              <span class="btn btn-sm btn-secondary" (click)="sortBy('ba', m.name)">b-a</span>
             </li>
           </ul>
         </div>
