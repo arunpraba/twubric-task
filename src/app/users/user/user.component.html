@@ -1,0 +1,28 @@
+<div class="box-part card box-5">
+  <div class="card-header">
+    <h5 class="card-title">{{user.fullname}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{user.username}}</h6>
+    <img class="card-img-top" [src]="user.image" [alt]="user.fullname" />
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th *ngFor="let th of headers">{{th | titlecase}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td *ngFor="let td of headers">{{user.twubric[td]}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <p class="text-muted">{{getDate(user.join_date) | date}}</p>
+    <button class="btn btn-sm btn-danger" (click)="deleteItem(user)">Delete</button>
+  </div>
+</div>
